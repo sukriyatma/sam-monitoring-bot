@@ -1,0 +1,228 @@
+
+
+@font-face {
+    font-family: PoppinsBold;
+    src: url("../aset/font/Poppins-Bold.ttf");
+}
+@font-face {
+    font-family: PoppinsExtraBold;
+    src: url("../aset/font/Poppins-ExtraBold.ttf");
+}
+@font-face {
+    font-family: PoppinsSemiBold;
+    src: url("../aset/font/Poppins-SemiBold.ttf");
+}
+@font-face {
+    font-family: PoppinsMedium;
+    src: url("../aset/font/Poppins-Medium.ttf");
+}
+@font-face {
+    font-family: PoppinsRegular;
+    src: url("../aset/font/Poppins-Regular.ttf");
+}
+
+ul::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+li {
+    list-style-type: none;
+}
+
+#divMain {
+    height: 100vh;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    orientation: horizontal;
+}
+
+#divLeft {
+    width: 25%;
+    height: 100%;
+
+    background-color: #20242F;
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#divRight {
+    width: 75%;
+    height: 100%;
+
+    background-color: #343A4B;
+    font-family: Arial, Helvetica, sans-serif;
+
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#listMonitorContainer {
+    width: 100%;
+    height: 75%;
+
+    background-color: #20242F;
+    
+}
+
+#ulMonitor {
+    width: 100%;
+    height: 80%;
+
+    margin: 0;
+
+    padding: 0;
+    background-color: #20242F;
+
+    overflow: scroll;
+}
+
+.liDataMonitor {
+    width: 100%;
+    
+    margin-bottom: 10px;
+
+    align-items: center;  
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+}
+
+#divDataMonitor {
+    width: 70%;
+    height: 100%;
+    background-color: #363A44;
+
+    border: #D7D7D7 2px;
+    border-style: solid;
+    border-radius: 10px;
+
+    margin-right: 15px;
+
+    padding: 17px;
+    font-size: 15px;
+    text-align: center;
+    font-family: PoppinsBold;
+}
+
+#buttonMonitor {
+    width: 300px;
+    height: 75%;
+    background-color: #363A44;
+}
+
+#divDataMonitor:hover {
+    background-color: #22242B;
+}
+
+#divDataMonitor:active {
+    box-shadow: 3px 4px #363A44;
+    padding: 16px;
+}
+
+.botData {
+    font-size: 16px;
+    font-family: PoppinsSemiBold;
+}
+
+.botDataHeader {
+    color: #7A7979;
+    font-size: 15px;
+}
+
+
+/* Indicator Status Bot */
+.indicatorStatus {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    display: inline-block;
+}
+#statusONLINE {
+    background-color: #9EFF7B;
+}
+#statusOFFLINE {
+    background-color: #717171;
+}
+#statusLOGIN_FAILED {
+    background-color: #FFC147;
+}
+#statusBAN {
+    background-color: #FF4646;
+}
+
+/* List Bots */
+#liListBot {
+    /* height : 166px; */
+    width: 100%; height: 40%; margin-bottom: 20px; display: flex; flex-direction: row; justify-content: center; align-items: center;
+}
+#divBot {
+    width: 90%; height: 100%; display: flex; flex-direction: row;
+}
+#divIndicatorStatus {
+    height: 25%; width: 50px; justify-content: center; align-items: center; display: flex; flex-direction: row;
+}
+
+
+#nameBot {
+    width: 100%; height: 25%; text-align: center; padding-top: 5px; background-color: #1F2027; border-radius: 10px 10px 0px 0px;
+    font-family: PoppinsSemiBold; font-size: 20px;
+}
+
+
+/* Details Bots */
+section#detailsBot {
+    width: 100%; height: 75%; background-color: #28292F; border-radius: 0px 0px 10px 10px;
+}
+section#detailsBot div#divDetailsBot {
+    padding: 20px; display: flex; align-items: center; justify-content: center;
+}
+
+tr.headerBot1>td {
+    padding-bottom: 10px;
+}
+
+tr.headerBot2 td div, tr.headerBot1 td div  {
+    display: flex; flex-direction: column; align-items: center;
+} 
+
+tr.headerBot2 td div span.botDataHeader, tr.headerBot1 td div span.botDataHeader {
+    color: #7A7979; font-size: 15px;
+}
+
+
+
+/* Total Details Bot */
+section#totalDetailBots table tr {
+    text-align: center; font-family: PoppinsSemiBold;
+}
+
+section#totalDetailBots table tr div{
+    display: flex; flex-direction: row;
+}
+
+section#totalDetailBots table tr div input.headerTotalBots {
+    color: #B8B8B8; margin-right: 5px; background-color: #1C1E25; border: none; font-family: PoppinsBold;
+}
+
+#logOutButton {
+    height: 30px; color: #FF4949; background-color: #20242F; border: none; padding-left: 30px; font-size: 20px; font-family: PoppinsBold;
+}
+#logOutButton:hover {
+    color: #FFF;
+}
+#logOutButton:active {
+    font-size: larger;
+}

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoring BOT</title>
+    <link rel="stylesheet" href="css/home.css">
+    <script src="jquery.js" lang="text/javascript"></script>
+    <script src="node_modules\axios\dist\axios.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+
+    <div id="divMain">
+        <div id="divLeft">
+            <div style="height: 15%; align-items: center; justify-content: center; display: flex;">
+                <h1 style="color: white; font-family: PoppinsExtraBold;">MONITORING BOT</h1>
+            </div>
+            
+            <div id="listMonitorContainer">
+                <div style="width: 45%; display: flex; justify-content: center; align-items: center;">
+                    <h3 >Monitors :</h3>
+                </div>
+                <ul id="ulMonitor"> <!--  value Monitor --> </ul>
+            </div>
+            <input type="button" id="logOutButton" value="Log Out"/>
+
+        </div>
+        <div id="divRight">
+            <div>
+                <div style="height: 15%; 
+                align-items: center;
+                justify-content: center; 
+                display: flex;">
+                    <h1 style="-webkit-text-stroke: 1px white; 
+                    color: #343A4B; font-size: 50px;">BOT INFO</h1>
+                </div>
+
+                <section style="width: 70%;">
+                    <span id="usernameUser" style="font-size: 25px; font-family: PoppinsBold;">yaTma</span>
+                    <div style=" display: flex; flex-direction: row;">
+                        <span style="color: white; font-family: PoppinsSemiBold; font-size: 15px;">Monitor > </span> 
+                        <span id="monitorName" style="color: #20FFD7; font-family: PoppinsSemiBold; font-size: 15px; margin-left: 5px;">RDPYATMA</span>
+                    </div>
+                </section>
+
+                <section style="margin-top: 15px;display: flex;
+                align-items: center;
+                justify-content: center;">
+                    <div style="height: 500px; 
+                        width: 878px; 
+                        background-color: #1C1E25;
+                        border-radius: 15px;">
+
+                        <section id="totalDetailBots" style="height: 10%; border-bottom: #4F4F4F 1px solid; display: flex; justify-content: center;">
+                            <table width="600px">
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <input type="button" class="headerTotalBots" id="btnTotalOnline" value="Online :"/>
+                                            <span id="totalOnline"></span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <input type="button" class="headerTotalBots" id="btnTotalOffline" value="Offline :"/>
+                                            <span id="totalOffline"></span>
+                                        </div>
+                                    </td>
+                                        
+                                    <td>
+                                        <div>
+                                            <input type="button" class="headerTotalBots" id="btnTotalLoginFailed" value="Login Failed :"/>
+                                            <span id="totalLoginFailed"></span>
+                                        </div>
+                                    </td>
+                                        
+                                    <td>
+                                        <div>
+                                            <input type="button" class="headerTotalBots" id="btnTotalBan" value="Bans :"/>
+                                            <span id="totalBan"></span>
+                                        </div>
+                                    </td>
+                                        
+                                </tr>
+                            </table>
+                            
+                        </section>
+
+                        <section style="height: 85%;">
+                            <ul id="ulListBots" style="width: 100%; height: 100%; padding: 0; overflow: scroll;">
+                                <!-- <li id="liListBot">
+                                    
+                                    <div id="divBot">
+
+                                        <div id="divIndicatorStatus">
+                                            <img id="indicatorStatus" src="aset\image\indicatorOnline.png" width="15px" height="15px">
+                                        </div>
+    
+                                        <div style="width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                                            <section id="nameBot">
+                                                <span>Jamal9901</span>    
+                                                <img src="aset\image\expand.png" style="float: right;">
+                                            </section>
+                                            <section id="detailsBot">
+                                                <div id="divDetailsBot">
+                                                    <table width="90%">
+                                                        <tr class="headerBot1">
+                                                            <td width="200px">
+                                                                <div>
+                                                                    <span class="botDataHeader">Status</span>
+                                                                    <span class="botData" id="statusBot">Online</span>
+                                                                </div>
+                                                            </td>
+                                                            <td width="200px">
+                                                                <div>
+                                                                    <span class="botDataHeader" >Captcha</span>
+                                                                    <span class="botData" id="captchaBot">Solved</span>
+                                                                </div>
+                                                            </td>
+                                                            <td width="200px">
+                                                                <div>
+                                                                    <span class="botDataHeader" >Current World</span>
+                                                                    <span class="botData" id="worldBot">WORLDKEBAL</span>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="headerBot2">
+                                                            <td width="200px">
+                                                                <div>
+                                                                    <span class="botDataHeader" >Position</span>
+                                                                    <span class="botData" id="positionBot">23,50</span>
+                                                                </div>
+                                                            </td>
+                                                            <td width="200px">
+                                                                <div>
+                                                                    <span class="botDataHeader" >Level</span>
+                                                                    <span class="botData" id="levelBot">67</span>
+                                                                </div>
+                                                            </td>
+                                                            <td width="200px">
+                                                                <div>
+                                                                    <span class="botDataHeader" >Last Updated</span>
+                                                                    <span class="botData" id="lastupdateBot">13:43</span>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </section>
+                                        </div>    
+                                    </div>
+                                </li> -->
+                            </ul>
+                        </section>
+                    </div>
+                </section>
+            </div>
+            
+        </div>
+    </div>
+    
+</body>
+</html>
