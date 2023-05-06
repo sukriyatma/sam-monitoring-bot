@@ -1,4 +1,3 @@
-// import {  } from "jquery";
 
 $(document).ready( ()=> {
     if (document.location.href.indexOf("index.html") === -1 ) return
@@ -6,15 +5,11 @@ $(document).ready( ()=> {
     $("#formLogin").on("click", "#loginButton", async ()=> {
         var usr = $("#inputUsername").val(); 
         var pwd = $("#inputPassword").val();
-        if (usr == "" || pwd === "") {
-            $("#replyForm").text("Username or Password must filled")
-            return
-        }
+        if (usr == "" || pwd === "") {$("#replyForm").text("Username or Password must filled");return}
         $("#replyForm").text("")
         $("#replyForm").css("color", "#FFF")
-    
-        const url = "http://localhost:8080/login?username=" + usr + "&password=" + pwd
-        axios.get(url)
+
+        axios.get(`http://api.perritosen.com/monitoringbot/login?username=${usr}&password=${pwd}`)
         .then((response) => {
             window.location.href = "home.html"
             localStorage.setItem("usr", usr)
@@ -24,7 +19,7 @@ $(document).ready( ()=> {
                 $("#replyForm").text("Check your connection")
                 $("#replyForm").css("color", "#FF4646")
                 return
-            } 
+            }
             if (error.response.status >= 400 && error.response.status < 500) {
                 $("#replyForm").text("Username or Password is wrong")
                 return
@@ -93,7 +88,7 @@ $(document).ready( ()=> {
     
 
     var getAllMonitors = ()=> {
-        axios.get(`http://localhost:8080/findmonitors?username=${localStorage.getItem("usr")}&password=${localStorage.getItem("pwd")}`)
+        axios.get(`http://api.perritosen.com/monitoringbot/findmonitors?username=${localStorage.getItem("usr")}&password=${localStorage.getItem("pwd")}`)
         .then(response => {
             if (response.data === null) return
             setUpMonitor(response.data)
@@ -103,12 +98,23 @@ $(document).ready( ()=> {
         })
         .catch(console.error)
     }
-    
 
     var getAllBots = async (monitor) => {
-        axios.get(`http://localhost:8080/getbots?username=${localStorage.getItem("usr")}&password=${localStorage.getItem("pwd")}&monitor=${monitor}`)
+        axios.get(`http://api.perritosen.com/monitoringbot/getbots?username=${localStorage.getItem("usr")}&password=${localStorage.getItem("pwd")}&monitor=${monitor}`)
         .then(setUpBots)
         .catch(console.error)
+    }
+
+    var getBotsByStatus = (monitor, status) => {
+        axios.get(`http://api.perritosen.com/monitoringbot/findbotsbystatus?username=${localStorage.getItem("usr")}&password=${localStorage.getItem("pwd")}&monitor=${monitor}&status=${status}`)
+        .then(setUpBots)
+        .catch(console.error)
+    }
+
+    var removeMonitor = (monitor) => {
+        axios.post(`http://api.perritosen.com/monitoringbot/removemonitor?username=${localStorage.getItem("usr")}&password=${localStorage.getItem("pwd")}&monitor=${monitor}`)
+        .then(getAllMonitors)
+        .catch(console.error);
     }
     
     var setUpBots = (response) => {
@@ -208,12 +214,6 @@ $(document).ready( ()=> {
         }
     }
 
-    var getBotsByStatus = (monitor, status) => {
-        axios.get(`http://localhost:8080/findbotsbystatus?username=${localStorage.getItem("usr")}&password=${localStorage.getItem("pwd")}&monitor=${monitor}&status=${status}`)
-        .then(setUpBots)
-        .catch(console.error)
-    }
-
     var setUpMonitor = (monitors) => {
         let HTMLulMonitor = "";
         for (let i=0; i<monitors.length; i++) {
@@ -227,12 +227,6 @@ $(document).ready( ()=> {
             </li>`;
         }
         $("#ulMonitor").html(HTMLulMonitor);
-    }
-
-    var removeMonitor = (monitor) => {
-        axios.post(`http://localhost:8080/removemonitor?username=${localStorage.getItem("usr")}&password=${localStorage.getItem("pwd")}&monitor=${monitor}`)
-        .then(getAllMonitors)
-        .catch(console.error);
     }
 
     var setMonitorActive = (monitor) => {
