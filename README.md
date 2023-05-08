@@ -11,6 +11,8 @@ Service and Website for Monitoring BOT
     
 ---	
 ### Validate User
+* **Method**
+	`GET`
 * **URL**
 `/monitoringbot/login`
 	* **Parameter**
@@ -19,6 +21,8 @@ Service and Website for Monitoring BOT
 		
 ---
 ### Get Bots Activity
+* **Method**
+	`GET`
 * **URL**
 `/monitoringbot/getbots`
 	* **Parameter**
@@ -29,29 +33,31 @@ Service and Website for Monitoring BOT
 * **Response**
 	```json 
 	{
-		"list" 		: [ 
-						{ 
-							"lastupdate": int,
-							"monitor"	: string,
-							"name"		: string,
-							"status"	: string,
-							"world"		: string, 
-							"level"		: string, 
-							"captcha" 	: string, 
-							"x" 		: int, 
-							"y" 		: int, 
-							"profit" 	: [
-											{
-												id : int, 
-												total: int
-											},
-										  ] 
-						},
-					 ]
+	 	"list"	: [ 
+					{ 
+						"lastupdate": "int",
+						"monitor"	: "string",
+						"name"		: "string",
+						"status"	: "string",
+						"world"		: "string", 
+						"level"		: "string", 
+						"captcha" 	: "string", 
+						"x" 		: "int", 
+						"y" 		: "int", 
+						"profit" 	: [
+										{
+											"id" : "int", 
+											"total": "int"
+										},
+									] 
+					},
+				]
 	} 
 	```
 ---
 ### Get Monitors
+* **Method**
+	`GET`
 * **URL**
 `/monitoringbot/findmonitors`
 	* **Parameter**		
@@ -65,6 +71,8 @@ Service and Website for Monitoring BOT
 	
 ---
 ### Get Bots by Status
+* **Method**
+	`GET`
 * **URL**
 `/monitoringbot/findbotsbystatus`
 	* **Parameter**
@@ -76,30 +84,32 @@ Service and Website for Monitoring BOT
 * **Response**
 	```json 
 	{
-		"list" 		: [ 
-						{ 
-							"lastupdate": int,
-							"monitor"	: string,
-							"name"		: string,
-							"status"	: string,
-							"world"		: string, 
-							"level"		: string, 
-							"captcha" 	: string, 
-							"x" 		: int, 
-							"y" 		: int, 
-							"profit" 	: [
-											{
-												id : int, 
-												total: int
-											},
-										  ] 
-						},
-					 ]
+		"list" 	: [ 
+					{ 
+						"lastupdate": "int",
+						"monitor"	: "string",
+						"name"		: "string",
+						"status"	: "string",
+						"world"		: "string", 
+						"level"		: "string", 
+						"captcha" 	: "string", 
+						"x" 		: "int", 
+						"y" 		: "int", 
+						"profit" 	: [
+										{
+											"id" : "int", 
+											"total": "int"
+										},
+									] 
+					},
+				]
 	} 
 	```
 
 ---
 ### Remove Monitor
+* **Method**
+	`POST`
 * **URL**
 `/monitoringbot/removemonitor`
 	* **Parameter**
@@ -109,6 +119,8 @@ Service and Website for Monitoring BOT
 
 ---
 ### Insert Bot
+* **Method**
+	`POST`
 * **URL**
 `/monitoringbot/insertbot`
 	* **Parameter**
@@ -116,30 +128,32 @@ Service and Website for Monitoring BOT
 * **Body**
 	```json
 	{ 
-		"password"	: string 
-		"monitor" 	: string 
+		"password"	: "string" ,
+		"monitor" 	: "string" ,
 		"list" 		: [ 
 						{ 
-							"name"		: string 
-							"status"	: string 
-							"world"		: string 
-							"level"		: string 
-							"captcha" 	: string 
-							"x" 		: int 
-							"y" 		: int 
+							"name"		: "string" ,
+							"status"	: "string" ,
+							"world"		: "string" ,
+							"level"		: "string" ,
+							"captcha" 	: "string" ,
+							"x" 		: "int" ,
+							"y" 		: "int" ,
 							"profit" 	: [
 											{
-												id : int, 
-												total: int
-											}
+												"id" : "int", 
+												"total": "int"
+											},
 										  ] 
-						} 
+						} ,
 					 ] 
 	}
 	```
 
 ---
 ### Insert User
+* **Method**
+	`POST`
 * **URL**
 	`/monitoringbot/insertuser`
 	* **Parameter**
@@ -148,8 +162,8 @@ Service and Website for Monitoring BOT
 * **Response**
 	```json
 	{
-		"username" : string,
-		"password" : string
+		"username" : "string",
+		"password" : "string",
 		"monitors" : []
 	}
 	```
