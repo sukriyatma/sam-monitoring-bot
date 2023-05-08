@@ -1,6 +1,6 @@
 
 $(document).ready( ()=> {
-    if (document.location.href.indexOf("index.html") === -1 ) return
+    if (document.location.href.indexOf("monitor.yatma.xyz") === -1 ) return
     localStorage.removeItem("usr"); localStorage.removeItem("pwd")
     $("#formLogin").on("click", "#loginButton", async ()=> {
         var usr = $("#inputUsername").val(); 
@@ -35,8 +35,8 @@ $(document).ready( ()=> {
 })
 
 $(document).ready( ()=> {
-    if (document.location.href.indexOf("home.html") === -1 ) return
-    if ( !localStorage.getItem("usr") ) {window.location.href = "index.html"; return }
+    if (document.location.href.indexOf("home") === -1 ) return
+    if ( !localStorage.getItem("usr") ) {window.location.href = "monitor.yatma.xyz"; return }
 
     $("#usernameUser").html(localStorage.getItem("usr"))
     $("#logOutButton").click( ()=> {localStorage.removeItem("usr");localStorage.removeItem("pwd"); window.location.href="index.html"})
