@@ -11,7 +11,7 @@ $(document).ready( ()=> {
 
         axios.get(`http://api.perritosen.com/monitoringbot/login?username=${usr}&password=${pwd}`)
         .then((response) => {
-            window.location.href = "home.html"
+            window.location.href = "home"
             localStorage.setItem("usr", usr)
             localStorage.setItem("pwd", pwd)
         }).catch(error => {
@@ -36,7 +36,7 @@ $(document).ready( ()=> {
 
 $(document).ready( ()=> {
     if (document.location.href.indexOf("home") === -1 ) return
-    if ( !localStorage.getItem("usr") ) {window.location.href = "monitor.yatma.xyz"; return }
+    if ( !localStorage.getItem("usr") ) {window.location.href = "http://monitor.yatma.xyz/"; return }
 
     $("#usernameUser").html(localStorage.getItem("usr"))
     $("#logOutButton").click( ()=> {localStorage.removeItem("usr");localStorage.removeItem("pwd"); window.location.href="index.html"})
