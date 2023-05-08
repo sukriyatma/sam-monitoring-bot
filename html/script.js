@@ -35,7 +35,7 @@ $(document).ready( ()=> {
 })
 
 $(document).ready( ()=> {
-    if (document.location.href.indexOf("home") === -1 ) return
+    if (document.location.href.indexOf("monitor.yatma.xyz/home") === -1 ) return
     if ( !localStorage.getItem("usr") ) {window.location.href = "http://monitor.yatma.xyz/"; return }
 
     $("#usernameUser").html(localStorage.getItem("usr"))
